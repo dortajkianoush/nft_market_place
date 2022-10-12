@@ -43,9 +43,10 @@ use pallet_transaction_payment::CurrencyAdapter;
 pub use sp_runtime::BuildStorage;
 pub use sp_runtime::{Perbill, Permill};
 
+pub use base_nft;
+pub use pallet_nft;
 /// Import the template pallet.
 pub use pallet_template;
-pub use base_nft;
 
 /// An index to a block.
 pub type BlockNumber = u32;
@@ -267,6 +268,12 @@ impl pallet_template::Config for Runtime {
 	type Event = Event;
 }
 
+impl pallet_nft::Config for Runtime {
+	type Event = Event;
+	type Call = Call;
+	type WeightInfo = pallet_nft::weights::SubstrateWeight<Runtime>;
+}
+
 impl base_nft::Config for Runtime {
 	type Event = Event;
 	type ClassId = u32;
@@ -292,6 +299,7 @@ construct_runtime!(
 		// Include the custom logic from the pallet-template in the runtime.
 		TemplateModule: pallet_template,
 		BaseNft:base_nft,
+		NFT:pallet_nft,
 	}
 );
 

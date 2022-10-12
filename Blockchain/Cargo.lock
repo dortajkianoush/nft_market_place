@@ -3810,6 +3810,7 @@ dependencies = [
  "pallet-aura",
  "pallet-balances",
  "pallet-grandpa",
+ "pallet-nft",
  "pallet-randomness-collective-flip",
  "pallet-sudo",
  "pallet-template",
@@ -4063,6 +4064,21 @@ dependencies = [
  "sp-session",
  "sp-staking",
  "sp-std 4.0.0 (git+https://github.com/paritytech/substrate.git?branch=polkadot-v0.9.25)",
+]
+
+[[package]]
+name = "pallet-nft"
+version = "0.0.1"
+dependencies = [
+ "base-nft",
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
 ]
 
 [[package]]
